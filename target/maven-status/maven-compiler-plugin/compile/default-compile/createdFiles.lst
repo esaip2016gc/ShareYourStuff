@@ -1,1 +1,5 @@
+entity/Ad.class
+entity/Object.class
+entity/TypeObject.class
 home/HomeServlet.class
+entity/User.class
