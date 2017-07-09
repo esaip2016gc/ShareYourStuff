@@ -20,7 +20,7 @@ import java.sql.Statement;
 /**
  * Created by guillaumebelouin on 28/06/2017.
  */
-@WebServlet("/")
+@WebServlet("/home")
 public class HomeServlet extends HttpServlet {
 
     @Override
@@ -35,12 +35,6 @@ public class HomeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        try {
-            Connection conn = DriverManager.getConnection("jdbc:h2:~/sys");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
         requestDispatcher.forward(req, resp);
     }

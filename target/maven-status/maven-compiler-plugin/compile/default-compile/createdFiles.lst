@@ -1,5 +1,8 @@
-entity/Ad.class
 entity/Object.class
 entity/TypeObject.class
 home/HomeServlet.class
+auth/LogoutServlet.class
+entity/Ad.class
 entity/User.class
+auth/LoginServlet.class
+auth/RegisterServlet.class
