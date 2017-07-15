@@ -8,7 +8,7 @@
     <title>Share Your Stuff | Login</title>
 
     <!-- Custom styles for this template -->
-    <link type="text/css" rel="stylesheet" href="<c:url value="css/signin.css" />" />
+    <link type="text/css" rel="stylesheet" href="<c:url value="css/signin.css" />"/>
 
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -18,23 +18,24 @@
 <body>
 
 <div class="container">
+    <div class="wrapper">
+        <form class="form-signin" method="POST" action="/login">
+            <h3 class="form-signin-heading">PLEASE SIGN IN</h3>
+            <hr class="colorgraph">
+            <br>
 
-    <form class="form-signin" method="POST" action="/login">
-        <h2 class="form-signin-heading">Please sign up</h2>
-
-        <div class="form-control">
             <label for="inputUsername" class="sr-only">Username</label>
-            <input type="text" name="inputUsername" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
-        </div>
+            <input type="text" name="inputUsername" id="inputUsername" class="form-control" placeholder="Username"
+                   required="" autofocus="">
 
-        <div class="form-control">
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
-        </div>
+            <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password"
+                   required>
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
-    </form>
-
+            <br>
+            <button class="btn btn-primary btn-block" type="submit">Log in</button>
+        </form>
+    </div>
 </div> <!-- /container -->
 
 <script
