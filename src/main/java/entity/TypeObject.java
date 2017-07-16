@@ -1,9 +1,8 @@
 package entity;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by guillaumebelouin on 28/06/2017.
@@ -17,7 +16,7 @@ public class TypeObject {
     private String name;
 
     public static void initStructure() {
-        Statement stmt = null;
+        Statement stmt;
         try {
             Connection con = DriverManager.getConnection("jdbc:h2:~/sys");
             stmt = con.createStatement();
@@ -28,6 +27,31 @@ public class TypeObject {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static List<TypeObject> getAll() {
+        Statement stmt;
+        List<TypeObject> typeObjectList = new ArrayList<>();
+
+        try {
+            Connection con = DriverManager.getConnection("jdbc:h2:~/sys");
+            stmt = con.createStatement();
+
+            String selectSql = "SELECT * FROM " + TABLE_NAME;
+            ResultSet resultSet = stmt.executeQuery(selectSql);
+
+            while (resultSet.next()) {
+                TypeObject typeObject = new TypeObject();
+                typeObject.setId(resultSet.getInt(ID));
+                typeObject.setName(resultSet.getString(NAME));
+
+                typeObjectList.add(typeObject);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return typeObjectList;
     }
 
     public int getId() {
